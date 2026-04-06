@@ -1,10 +1,10 @@
-<html>
-<h1>
-<title>
-This is argocd and jenkins learnings
-</title>
+FROM nginx:latest
+
+ARG BUILD_ID
+
+RUN echo "<html>
+<h1>This is argocd and jenkins learnings</h1>
 <center>
-Hi this is mani shankar. I am Learning argocd and jenkins pipeline, and the build is successfull with build ${env.BUILD_ID}
+Hi this is mani shankar. Build ID: ${BUILD_ID}
 </center>
-</h1>
-</html>
+</html>" > /usr/share/nginx/html/index.html
