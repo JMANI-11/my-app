@@ -8,6 +8,7 @@ pipeline {
     MANIFEST_REPO = "https://github.com/JMANI-11/k8s-manifests.git"
   }
 
+  
   stages {
 
     stage('Build Docker Image') {
