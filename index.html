@@ -1,5 +1,11 @@
-FROM nginx:latest
-
-ARG BUILD_ID
-
-RUN echo "<html><head><title>Jenkins ArgoCD</title></head><body><h1>This is argocd and jenkins learnings</h1><center>Hi this is mani shankar. Build ID: ${BUILD_ID}</center></body></html>" > /usr/share/nginx/html/index.html
+<html>
+<head>
+<title>Jenkins ArgoCD</title>
+</head>
+<body>
+<h1>This is argocd and jenkins learnings</h1>
+<center>
+Hi this is mani shankar. Build ID: BUILD_ID_PLACEHOLDER
+</center>
+</body>
+</html>
