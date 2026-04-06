@@ -26,22 +26,31 @@ pipeline {
 
     stage('Update Manifest Repo') {
       steps {
-        sh '''
-        rm -rf k8s-manifests
+        withCredentials([usernamePassword(
+          credentialsId: 'jakkampudimani18',   // your credential ID
+          usernameVariable: 'GIT_USER',
+          passwordVariable: 'GIT_PASS'
+        )]) {
 
-        git clone https://$GIT_USER:$GIT_PASS@github.com/JMANI-11/k8s-manifests.git
+          sh '''
+          rm -rf k8s-manifests
 
-        cd k8s-manifests
+          git clone https://$GIT_USER:$GIT_PASS@github.com/JMANI-11/k8s-manifests.git
 
-        sed -i "s|image:.*|image: $DOCKER_IMAGE:$TAG|g" deployment.yaml
+          cd k8s-manifests
 
-        git config user.email "jakkampudimani18@gmail.com"
-        git config user.name "JMANI-11"
+          sed -i "s|image:.*|image: $DOCKER_IMAGE:$TAG|g" deployment.yaml
 
-        git add .
-        git commit -m "Updated image to $TAG"
-        git push
-        '''
+          git config user.email "jakkampudimani18@gmail.com"
+          git config user.name "JMANI-11"
+
+          git add .
+          git commit -m "Updated image to $TAG"
+          git push
+          '''
+    }
+  }
+}
       }
     }
   }
