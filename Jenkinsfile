@@ -28,7 +28,7 @@ pipeline {
     stage('Update Manifest Repo') {
       steps {
         withCredentials([usernamePassword(
-          credentialsId: 'jakkampudimani18',
+          credentialsId: 'github_jakkampudimani18',
           usernameVariable: 'GIT_USER',
           passwordVariable: 'GIT_PASS'
         )]) {
