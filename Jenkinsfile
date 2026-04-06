@@ -27,7 +27,7 @@ pipeline {
     stage('Update Manifest Repo') {
       steps {
         withCredentials([usernamePassword(
-          credentialsId: 'jakkampudimani18',   // your credential ID
+          credentialsId: 'jakkampudimani18',
           usernameVariable: 'GIT_USER',
           passwordVariable: 'GIT_PASS'
         )]) {
@@ -48,10 +48,9 @@ pipeline {
           git commit -m "Updated image to $TAG"
           git push
           '''
-    }
-  }
-}
+        }
       }
     }
+
   }
 }
