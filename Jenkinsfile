@@ -7,7 +7,6 @@ pipeline {
     TAG = "${BUILD_NUMBER}"
     MANIFEST_REPO = "https://github.com/JMANI-11/k8s-manifests.git"
   }
-
   
   stages {
 
