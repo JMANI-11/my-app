@@ -1,9 +1,11 @@
-stage('Update HTML') {
-  steps {
-    sh """
-    echo "Build ID is $BUILD_ID"
-    sed -i "s/BUILD_ID_PLACEHOLDER/$BUILD_ID/g" index.html
-    cat index.html
-    """
-  }
-}
+<html>
+<head>
+<title>Jenkins ArgoCD</title>
+</head>
+<body>
+<h1>This is argocd and jenkins learnings</h1>
+<center>
+Hi this is mani shankar. Build ID: BUILD_ID_PLACEHOLDER
+</center>
+</body>
+</html>
