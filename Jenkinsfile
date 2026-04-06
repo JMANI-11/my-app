@@ -28,14 +28,14 @@ pipeline {
       steps {
         sh '''
         rm -rf k8s-manifests
-        git clone $MANIFEST_REPO
+
+        git clone https://YOUR_USERNAME:YOUR_TOKEN@github.com/JMANI-11/k8s-manifests.git
 
         cd k8s-manifests
 
-        # Update image tag
         sed -i "s|image:.*|image: $DOCKER_IMAGE:$TAG|g" deployment.yaml
 
-        git config user.email "jakkampudimani18@gmail.com"
+        git config user.email "your-email@gmail.com"
         git config user.name "JMANI-11"
 
         git add .
